@@ -1,20 +1,20 @@
 # Glove-Controlled Robot
 
-A wireless, gesture-controlled robot built entirely from scratch as an Engineer's Thesis project. The system consists of a custom-built data glove and a 3-axis mobile robot — both designed in Fusion 360 and manufactured with a 3D printer.
+A wireless, gesture-controlled robot built entirely from scratch as an Engineer's Thesis project. The system consists of a custom-built data glove and a 3-axis mobile robot - both designed in Fusion 360 and manufactured with a 3D printer.
 
 ## Demo
 
-![Glove on hand](docs/glove_on_hand.jpg)
-![Robot](docs/robot.jpg)
+![Robot](https://github.com/MrGessio/gesture_controlled_robot/blob/main/robot.jpg?raw=true)
+![Glove on hand](https://github.com/MrGessio/gesture_controlled_robot/blob/main/glove_on_hand.jpg?raw=true)
 
 ## Overview
 
-The operator wears the glove on their right hand. Bending individual fingers sends commands wirelessly to the robot, which responds in real time. The robot can drive in all directions and control a 3-axis manipulator with a gripper — all using one hand.
+The operator wears the glove on their right hand. Bending individual fingers sends commands wirelessly to the robot, which responds in real time. The robot can drive in all directions and control a 3-axis manipulator with a gripper - all using one hand.
 
 ## System Architecture
 
 ```
-[Glove — Arduino Nano]
+[Glove - Arduino Nano]
     5x flex sensors (velostat + copper tape)
     → voltage divider circuit
     → analogRead (A1–A5)
@@ -22,7 +22,7 @@ The operator wears the glove on their right hand. Bending individual fingers sen
             |
             | wireless (up to 1000m)
             |
-[Robot — Arduino Uno]
+[Robot - Arduino Uno]
     HC-12 radio module (RX)
     → L298N motor driver → 4x DC motors (IT-25GA370, 12V)
     → VarSpeedServo → 3x MG995 servos (manipulator)
@@ -52,7 +52,10 @@ The operator wears the glove on their right hand. Bending individual fingers sen
 - 5x custom flex sensors (velostat + copper tape + plexiglass)
 - HC-12 radio module
 - 9V battery
-- 3D-printed rings and housing (Fusion 360 + Creality Ender-3)
+- Slide switch
+
+
+![wiring_diagramNANO](https://github.com/MrGessio/gesture_controlled_robot/blob/main/wiring_diagramNANO.png?raw=true)
 
 ### Robot
 - Arduino Uno
@@ -63,9 +66,13 @@ The operator wears the glove on their right hand. Bending individual fingers sen
 - 1x Tower Pro SG90 servo (gripper)
 - 12V LiPo battery (3.6Ah)
 - DC-DC step-down converter (12V → 5V for servos)
-- 3D-printed chassis, arm, and wheels (Fusion 360 + Creality Ender-3)
+
+
+![wiring_diagramUNO](https://github.com/MrGessio/gesture_controlled_robot/blob/main/wiring_diagramUNO.png?raw=true)
 
 ## Flex Sensor Design
+
+![flex_sensor](https://github.com/MrGessio/gesture_controlled_robot/blob/main/flex_sensor.jpg?raw=true)
 
 Each sensor was built manually from:
 - Velostat (piezoresistive polymer film)
@@ -74,6 +81,9 @@ Each sensor was built manually from:
 - Soldered copper wire leads
 
 When a finger bends, the velostat compresses and resistance drops. This is read by Arduino via a voltage divider circuit.
+
+![Scheme_nobends](https://github.com/MrGessio/gesture_controlled_robot/blob/main/scheme_nobends.png?raw=true)
+![Scheme_bends](https://github.com/MrGessio/gesture_controlled_robot/blob/main/scheme_bends.png?raw=true)
 
 ## Specs
 
@@ -101,6 +111,6 @@ When a finger bends, the velostat compresses and resistance drops. This is read 
 
 ## Author
 
-MrGessio — Mechatronics Engineer  
+MrGessio, Mechatronics Engineer  
 Engineer's Thesis, 2022  
 GitHub: [github.com/MrGessio](https://github.com/MrGessio)
